@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/*!
+*  filename: properties.json
+*  version : 15.4.0.17
+*  Copyright Syncfusion Inc. 2001 - 2014. All rights reserved.
+*  Use of this code is subject to the terms of our license.
+*  A copy of the current license can be obtained at any time by e-mailing
+*  licensing@syncfusion.com. Any infringement will be prosecuted under
+*  applicable laws. 
+*/
+{
+  "accent-color": "#448aff",
+  "primary-color": "#3f51b5",
+  "primary-color-50": "#e8eaf6",
+  "primary-color-100": "#c5cae9",
+  "primary-color-300": "#7986cb",
+  "primary-font-color-50": "#000000",
+  "primary-font-color-300": "#ffffff",
+  "primary-font-color": "#ffffff",
+  "accent-font-color": "#fff",
+  "skin": "material-custom",
+  "skin-clone": "material"
+}

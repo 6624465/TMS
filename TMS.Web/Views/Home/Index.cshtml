@@ -1,0 +1,1313 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="box-title">
+                    Booking Entry
+
+                    <div class="dropdown" style="float:right;">
+                        <a href="#" class="dropdown-toggle u-dropdown btn btn-info btn-circle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu animated">
+                            <li><a href="#"><i class="fa fa-book dark-green" aria-hidden="true"></i>&nbsp;&nbsp;Cost Sheet</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><i class="fa fa-clone pink-icon" aria-hidden="true"></i>&nbsp;&nbsp;Clone Order</a></li>
+                            <li><a href="#"><i class="fa fa-retweet dark-blue" aria-hidden="true"></i>&nbsp;&nbsp;Change Order Type</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><i class="fa fa-exchange red-icon" aria-hidden="true"></i>&nbsp;&nbsp;Transfer Container(s) to New Order</a></li>
+                            <li><a href="#"><i class="fa fa-upload purple-icon" aria-hidden="true"></i>&nbsp;&nbsp;Transfer Container(s) to Existing Order</a></li>
+
+
+
+
+                        </ul>
+
+                    </div>
+                    <a href="#" class="btn btn-primary btn-circle pull-right" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+
+                </div>
+            </div>
+
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- .row -->
+
+
+        <div class="tab-content tab-space">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="col-md-6 pd-right">
+                    <div class="white-box pd">
+                        <h3 class="box-title">General Information</h3>
+                        <div class="container">
+                            <form class="form-horizontal">
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Order No. </label>
+                                    <div class="col-md-12">
+                                        <ej-mask-edit id="OrderNo" width="100%" input-mode="@InputMode.Text" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-sm-12">Booking Type</label>
+                                    <div class="col-sm-12">
+                                        <ej-drop-down-list id="BookingType" target-id="BookingTypeList" width="100%" watermark-text="Select Booking Type"></ej-drop-down-list>
+                                        <div id="BookingTypeList">
+                                            <ul>
+                                                <li>IMPORT</li>
+                                                <li>EXPORT</li>
+                                                <li>LOCAL</li>
+                                                <li>TRANSHIPMENT</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Booking No.</label>
+                                    <div class="col-md-12">
+                                        <ej-mask-edit id="BookingNo" width="100%" input-mode="@InputMode.Text" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-sm-12">Order Type</label>
+                                    <div class="col-sm-12">
+                                        <ej-drop-down-list id="OrderType" target-id="OrderTypeList" width="100%" watermark-text="Select Booking Type"></ej-drop-down-list>
+                                        <div id="OrderTypeList">
+                                            <ul>
+                                                <li>FCL/FCL</li>
+                                                <li>FCL/LCL</li>
+                                                <li>LCL/FCL</li>
+                                                <li>FCL/CFS</li>
+                                                <li>FCL/CYD</li>
+                                                <li>LOCAL</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Sub-B/L No.</label>
+                                    <div class="col-md-12">
+                                        <ej-mask-edit id="SubBLNo" width="100%" input-mode="@InputMode.Text" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Booking Date</label>
+                                    <div class="col-md-12">
+                                        <ej-date-time-picker date-time-format="dd/MM/yyyy HH:mm" id="BookingDate" width="100%" value="@DateTime.Now">
+                                            <e-time-drill-down enabled="true" interval="5" show-meridian="false" />
+                                        </ej-date-time-picker>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Agent Code</label>
+                                    <div class="col-md-12">
+                                        <ej-mask-edit id="AgentCode" width="100%" input-mode="@InputMode.Text" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Owner Code </label>
+                                    <div class="col-md-12">
+                                        <ej-mask-edit id="OwnerCode" width="100%" input-mode="@InputMode.Text" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Forwader Code </label>
+                                    <div class="col-md-12">
+                                        <ej-mask-edit id="ForwarderCode" width="100%" input-mode="@InputMode.Text" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Customer Code </label>
+                                    <div class="col-md-12">
+                                        <ej-mask-edit id="CustomerCode" width="100%" input-mode="@InputMode.Text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                </div>
+                                <span></span>
+                                <br />
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 pd-right">
+
+
+                    <div class="clearfix"></div>
+                    <div class="white-box pd">
+
+
+
+                        <div class="tab-pane active" id="users-rate">
+                            <div class="box-title">Activity</div>
+                            <div class="row">
+
+                                <div class="col-md-3 col-sm-3 col-xs-12 text-center">
+                                    <div class="chart easy-pie-chart-2" data-percent="75">
+                                        <span class="percent">75</span>
+                                        <br>
+                                        <h4>New Users Visits</h4>
+                                        <canvas height="100" width="100"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-12 text-center">
+                                    <div class="chart easy-pie-chart-1" data-percent="65">
+                                        <span class="percent">65</span>
+                                        <br>
+                                        <h4>Returning Users</h4>
+                                        <canvas height="100" width="100"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-12 text-center">
+                                    <div class="chart easy-pie-chart-3" data-percent="25">
+                                        <span class="percent">25</span>
+                                        <br>
+                                        <h4>Bounce Rate</h4>
+                                        <canvas height="100" width="100"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-12 text-center">
+                                    <div class="chart easy-pie-chart-2" data-percent="45">
+                                        <span class="percent">45</span>
+                                        <br>
+                                        <h4>Bounce Rate</h4>
+                                        <canvas height="100" width="100"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="timeline">
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 pd-right">
+                    <div class="white-box pd">
+                        <div class="box-title">Event Timeline</div>
+                        <section class="cd-horizontal-timeline loaded">
+                            <div class="timeline">
+                                <div class="events-wrapper">
+                                    <div class="events" style="width: 1800px;">
+                                        <ol>
+                                            <li><a href="#0" data-toggle="popover" title="Popover Header" data-placement="bottom" data-content="Some content inside the popover" data-date="16/01/2014" class="selected" style="left: 120px;">16 Jan</a></li>
+                                            <li><a href="#0" data-toggle="popover" title="Popover Header" data-placement="bottom" data-content="Some content inside the popover" data-date="28/02/2014" style="left: 300px;">28 Feb</a></li>
+                                            <li><a href="#0" data-date="20/04/2014" style="left: 480px;">20 Mar</a></li>
+                                            <li><a href="#0" data-date="20/05/2014" style="left: 600px;">20 May</a></li>
+                                            <li><a href="#0" data-date="09/07/2014" style="left: 780px;">09 Jul</a></li>
+                                            <li><a href="#0" data-date="30/08/2014" style="left: 960px;">30 Aug</a></li>
+                                            <li><a href="#0" data-date="15/09/2014" style="left: 1020px;">15 Sep</a></li>
+                                            <li><a href="#0" data-date="01/11/2014" style="left: 1200px;">01 Nov</a></li>
+                                            <li><a href="#0" data-date="10/12/2014" style="left: 1380px;">10 Dec</a></li>
+                                            <li><a href="#0" data-date="19/01/2015" style="left: 1500px;">29 Jan</a></li>
+                                            <li><a href="#0" data-date="03/03/2015" style="left: 1680px;">3 Mar</a></li>
+                                        </ol>
+
+                                        <span class="filling-line" aria-hidden="true" style="transform: scaleX(0.0781641);"></span>
+                                    </div> <!-- .events -->
+                                </div> <!-- .events-wrapper -->
+
+                                <ul class="cd-timeline-navigation">
+                                    <li><a href="#0" class="prev inactive">Prev</a></li>
+                                    <li><a href="#0" class="next">Next</a></li>
+                                </ul> <!-- .cd-timeline-navigation -->
+                            </div> <!-- .timeline -->
+                            <!--<div class="events-content">
+                                <ol>
+                                    <li class="selected" data-date="16/01/2014">
+                                        <h2>Horizontal Timeline</h2>
+                                        <em>January 16th, 2014</em>
+                                        <p>
+
+                                        </p>
+                                    </li>
+
+                                    <li data-date="28/02/2014">
+                                        <h2>title here</h2>
+                                        <em>February 28th, 2014</em>
+                                        <p>
+
+                                        </p>
+                                    </li>
+
+                                    <li data-date="20/04/2014">
+                                        <h2>title here</h2>
+                                        <em>March 20th, 2014</em>
+                                        <p>
+
+                                        </p>
+                                    </li>
+
+                                    <li data-date="20/05/2014">
+                                        <h2>title here</h2>
+                                        <em>May 20th, 2014</em>
+                                        <p>
+
+                                        </p>
+                                    </li>
+
+                                    <li data-date="09/07/2014">
+                                        <h2>title here</h2>
+                                        <em>July 9th, 2014</em>
+                                        <p>
+
+                                        </p>
+                                    </li>
+
+                                    <li data-date="30/08/2014">
+                                        <h2>title here</h2>
+                                        <em>August 30th, 2014</em>
+                                        <p>
+
+                                        </p>
+                                    </li>
+
+                                    <li data-date="15/09/2014">
+                                        <h2>Event title here</h2>
+                                        <em>September 15th, 2014</em>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                        </p>
+                                    </li>
+
+                                    <li data-date="01/11/2014">
+                                        <h2>Event title here</h2>
+                                        <em>November 1st, 2014</em>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                        </p>
+                                    </li>
+
+                                    <li data-date="10/12/2014">
+                                        <h2>Event title here</h2>
+                                        <em>December 10th, 2014</em>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                        </p>
+                                    </li>
+
+                                    <li data-date="19/01/2015">
+                                        <h2>Event title here</h2>
+                                        <em>January 19th, 2015</em>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                        </p>
+                                    </li>
+
+                                    <li data-date="03/03/2015">
+                                        <h2>Event title here</h2>
+                                        <em>March 3rd, 2015</em>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                        </p>
+                                    </li>
+                                </ol>
+                            </div>-->
+                            <!-- .events-content -->
+                        </section>
+
+
+
+                        <br /><br />
+
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="col-md-12">
+                    <ul class="nav customtab2 nav-tabs" role="tablist">
+                        <li role="presentation" class="nav-item"><a href="#home44" class="nav-link active" aria-controls="home" id="mytab1" role="tab" data-toggle="tab" aria-expanded="false"><span><i class="fa fa-window-restore" aria-hidden="true"></i></span></a></li>
+                        <li role="presentation" class="nav-item"><a href="#home33" class="nav-link" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false"><span><i class="fa fa-archive" aria-hidden="true"></i></span></a></li>
+                        <li role="presentation" class="nav-item"><a href="#mark-nos" class="nav-link" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false"><span><i class="fa fa-sitemap" aria-hidden="true"></i></span></a></li>
+
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home44">
+                        <div class="col-md-6 pd-right">
+                            <div class="white-box pd">
+                                <div class="box-title">Sailing Details </div>
+                                <div class="container">
+                                    <form class="form-horizontal">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Vessel Code</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" placeholder="placeholder">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Voyage No.</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" placeholder="placeholder">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-sm-12">Wharf</label>
+                                            <div class="col-sm-12">
+                                                <select class="form-control form-control-line">
+                                                    <option>Select Wharf</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Prev loc</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Loading Port">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Loading Port</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Discharge Port">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Discharge Port</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Discharge Port">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Destination Port </label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Destination Port">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Paperless Code</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Prev Loc">
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 pd-right">
+                            <div class="white-box pd">
+                                <div class="box-title">Sailing Schedule</div>
+                                <div class="container">
+                                    <form class="form-horizontal">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">ETA</label>
+                                            <div class="input-group col-md-12">
+                                                <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="ETA" type="text" value="01/02/2018 14:24:54">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">ETD</label>
+                                            <div class="input-group col-md-12">
+                                                <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="ETA" type="text" value="01/02/2018 14:24:54">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">CY Cut-off(Dry)</label>
+                                            <div class="input-group col-md-12">
+                                                <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="CY Cut-off(Dry)" type="text" value="01/02/2018 14:24:54">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">CY Cut-off(Refer)</label>
+                                            <div class="input-group col-md-12">
+                                                <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="CY Cut-off(Refer)" type="text" value="01/02/2018 14:24:54">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">CFS Cut-off(Dry)</label>
+                                            <div class="input-group col-md-12">
+                                                <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="CFS Cut-off(Dry)" type="text" value="01/02/2018 14:24:54">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">CFS Cut-off(Refer)</label>
+                                            <div class="input-group col-md-12">
+                                                <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="CFS Cut-off(Refer)" type="text" value="01/02/2018 14:24:54">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Port Cut-off</label>
+                                            <div class="input-group col-md-12">
+                                                <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="Port Cut-off" type="text" value="01/02/2018 14:24:54">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Port Cut-off(Refer)</label>
+                                            <div class="input-group col-md-12">
+                                                <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="Port Cut-off(Refer)" type="text" value="01/02/2018 14:24:54">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                        </div>
+
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+
+
+                    <div role="tabpanel" class="tab-pane wobble" id="home33">
+                        <div class="col-md-12 pd-right">
+                            <div class="white-box pd-0">
+                                <div class="title">
+                                    <h1>Container Details</h1>
+                                    <div class="pull-right">
+                                        <div class="dropdown" style="float:right;">
+                                            <a href="#" class="dropdown-toggle u-dropdown btn btn-primary btns-align" style="padding: 7px" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                                            <ul class="dropdown-menu animated">
+                                                <li><a href="#"><i class="fa fa-check-square-o dark-green" aria-hidden="true"></i>&nbsp;&nbsp;Select All</a></li>
+                                                <li><a href="#"><i class="fa fa-square-o pink-icon" aria-hidden="true"></i>&nbsp;&nbsp;Unselect All</a></li>
+
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#"><i class="fa fa-plus blue-icon" aria-hidden="true"></i>&nbsp;&nbsp;Add Multiple Container</a></li>
+                                                <li><a href="#"><i class="fa fa-pencil-square red-icon" aria-hidden="true"></i>&nbsp;&nbsp;Update Multiple Containers</a></li>
+                                                <li><a href="#"><i class="fa fa-trash-o dark-blue" aria-hidden="true"></i>&nbsp;&nbsp;Delete Multiple Containers</a></li>
+
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#"><i class="fa fa-pencil-square Purple-icon" aria-hidden="true"></i>&nbsp;&nbsp;Update VAS to Multiple Containers</a></li>
+                                                <li><a href="#"><i class="fa fa-pencil-square dark-green" aria-hidden="true"></i>&nbsp;&nbsp;Update PU/DO Mode to Multiple Containers</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#"><i class="fa fa-eraser pink-icon" aria-hidden="true"></i>&nbsp;&nbsp;Clear Details</a></li>
+                                            </ul>
+                                        </div>&nbsp;
+                                        <a href="#" class="btn btn-primary btns-align" data-toggle="modal" data-target="#exampleModal" style="float:left; background:#358df5; border:none; margin-top:2px;">+ Add</a>
+                                        <!--<a href="#" class="btn btn-primary" style="margin-bottom:10px; margin-left:10px; background:#77b5fe; border:none;">More</a>-->
+
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                                <div class="col-md-3">
+
+                                    <div class="summery-item bg-green">
+                                        <div class="summary-left bg-left">
+                                            <i class="fa fa-area-chart fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="summery-title">
+                                            Total 20 Footer<span class="count">300</span>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-3">
+
+                                    <div class="summery-item bg-orange">
+                                        <div class="summary-left bg-orange-left">
+                                            <i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="summery-title">
+                                            Total 40 Footer<span class="count">300</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <div class="summery-item bg-blue">
+                                        <div class="summary-left bg-blue-left">
+                                            <i class="fa fa-area-chart fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="summery-title">
+                                            Total 45 Footer<span class="count">300</span>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-3">
+
+                                    <div class="summery-item bg-lightblue">
+                                        <div class="summary-left bg-lightblue-left">
+                                            <i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="summery-title">
+                                            Total No. of Containers<span class="count">300</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+
+
+                                <div class="container-fluid" style="padding:15px 15px;">
+                                    <div class="table-responsive">
+                                        <table class="table color-table success-table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:20px;">Select</th>
+                                                    <th>#</th>
+                                                    <th>Container No</th>
+                                                    <th>Size</th>
+                                                    <th>Type</th>
+                                                    <th>Grade</th>
+                                                    <th>P/U Mode</th>
+                                                    <th>Pickup Date</th>
+                                                    <th>IMO</th>
+                                                    <th>UNNo</th>
+                                                    <!--<th style="width:25px;">Details</th>-->
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+
+
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check" style="margin-left: 10px;">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                <span class="custom-control-indicator"></span>
+
+                                                            </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>1</td>
+                                                    <td>OOLU125454</td>
+                                                    <td>20</td>
+                                                    <td>GP</td>
+                                                    <td>None</td>
+                                                    <td>D/N Own</td>
+                                                    <td>02/07/2018</td>
+                                                    <td>G1.0</td>
+                                                    <td></td>
+                                                    <!--<td><button type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="fat">Container Info</button></td>-->
+                                                    <td class="text-nowrap">
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                        <a href="#" data-toggle="tooltip" data-original-title="Delete"> <i class="fa fa-trash text-danger"></i> </a>
+                                                    </td>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row showdiv" style="display:none;">
+
+                                    <div class="col-md-6">
+                                        <div class="box-title">Movements </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Movement</th>
+                                                        <th>Transaction No.</th>
+                                                        <th>MVMT Date</th>
+                                                        <th style="width:20px">Status</th>
+                                                        <th>Yard Location</th>
+                                                        <th>Truck Trasaction No.</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>FULL IN</td>
+                                                        <td>EISCT114070252</td>
+                                                        <td>07/02/2018</td>
+                                                        <td>
+                                                            <div class="form-check" style="margin-left:10px;">
+                                                                <label class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" id="mycheckbox" class="custom-control-input">
+                                                                    <span class="custom-control-indicator"></span>
+
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                        <td>SCT IMP</td>
+                                                        <td>GISCT1140514239</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="box-title">VAS charges</div>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Charge Code</th>
+                                                    <th>Payment Term</th>
+                                                    <th>Payment to</th>
+                                                    <th>Qty</th>
+                                                    <th>Is Autoload</th>
+                                                    <th>Is Vas</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="mark-nos">
+                        <div class="col-md-12 pd-right">
+                            <div class="white-box pd">
+                                <div class="box-title">Marks &amp; No.'s</div>
+                                <div class="container-fluid">
+                                    <form class="form-horizontal">
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Total Qty</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" placeholder="Total Qty">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group col-md-6">
+                                            <label class="col-sm-12">UOM</label>
+                                            <div class="col-sm-12">
+                                                <select class="form-control form-control-line">
+                                                    <option>PKG</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Total Volume</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" placeholder="Total Volume">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Total Weight</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Total Weight">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Commodity</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Discharge Port">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Marks &amp; No.'s</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Discharge Port">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Special Instructions</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="" placeholder="Special Instructions">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="col-md-12">Remarks</label>
+                                            <div class="col-md-12">
+                                                <textarea type="text" rows="1" class="form-control form-control-line" value="" placeholder="Prev Loc"> </textarea>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="clearfix"></div>
+
+
+                </div>
+                <div class="col-md-6">
+                    <a href="#"><div class="btn btn-success" style="background:#676767; border:1px solid #676767;"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save</div></a>
+                    <a href="#"><div class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Approve</div></a>
+                    <a href="#"><div class="btn btn-danger" style="background:#dd4b39;"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Delete</div></a>
+                    <a href="#"><div class="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;&nbsp;Print</div></a>
+                </div>
+                <div class="col-md-6">
+                    <div class="pull-right">
+
+                        <a href="#"><div class="btn btn-warning"><i class="fa fa-eraser" aria-hidden="true"></i>&nbsp;&nbsp;Clear</div></a>
+                        <a href="#"><div class="btn btn-danger"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;Back</div></a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="clearfix"></div>
+
+        <!--modals-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel1">Container Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12">
+
+                            <form>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Container No.</label>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control form-control-line" value="" placeholder="Container No.">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">Type Size</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control form-control-line">
+                                            <option>Select type</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">&nbsp;</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control form-control-line">
+                                            <option>Select Size</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-sm-12">Container Class</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control form-control-line">
+                                            <option>Select Container Class</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-sm-12">P/U Mode</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control form-control-line">
+                                            <option>Select Container P/U Mode</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">IMO/UN NO</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control form-control-line">
+                                            <option>Select IMO/UN NO</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">&nbsp;</label>
+                                    <div class="col-sm-12">
+
+                                        <input type="text" class="form-control form-control-line" value="" placeholder="">
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-sm-12">Cargo cat</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control form-control-line">
+                                            <option>Select Cargo cat</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">Weight/Vol</label>
+                                    <div class="col-sm-12">
+
+                                        <input type="text" class="form-control form-control-line" value="" placeholder="weight">
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">&nbsp;</label>
+                                    <div class="col-sm-12">
+
+                                        <input type="text" class="form-control form-control-line" value="" placeholder="vol">
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-12">Pickup Date</label>
+                                    <div class="input-group col-md-12">
+                                        <input class="form-control form-control-line" data-val="true" data-val-date="The field DateOfBirth must be a date." data-val-required="The DateOfBirth field is required." name="driver.DateOfBirth" placeholder="ETA" type="text" value="01/02/2018 14:24:54">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">Temaprature</label>
+                                    <div class="col-sm-12">
+
+                                        <input type="text" class="form-control form-control-line" value="" placeholder="Temparature">
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">&nbsp;</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control form-control-line">
+                                            <option>Cel</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-sm-12">Agent Seal</label>
+                                    <div class="col-sm-12">
+
+                                        <input type="text" class="form-control form-control-line" value="" placeholder="Agent Seal">
+
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">Vent Seal</label>
+                                    <div class="col-sm-12">
+
+                                        <input type="text" class="form-control form-control-line" value="" placeholder="Temparature">
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="col-sm-12">&nbsp;</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control form-control-line">
+                                            <option>Ven</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-sm-12">Cust Seal</label>
+                                    <div class="col-sm-12">
+
+                                        <input type="text" class="form-control form-control-line" value="" placeholder="Cust Seal">
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="col-sm-12">Remarks</label>
+                                    <div class="col-sm-12">
+
+                                        <textarea type="text" class="form-control form-control-line" value=""></textarea>
+
+                                    </div>
+                                </div>
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-sucess" style="background:#676767; color:#fff;"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save</button>
+                        <button type="button" class="btn btn-default close-btn" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- .right-sidebar -->
+        <!-- /.right-sidebar -->
+    </div>*@
+
+<div class="tab-container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item" id="litab_0" index="0">
+            <a onclick="
+                    $('.tab').hide();
+                    $('.tab0').show();
+                    $('.tab-pane').removeClass('active');
+                    $('#tabpane_0').addClass('active'); $('.nav-item').removeClass('active'); $('#litab_0').addClass('active');" class="nav-link">
+                <span><b>page1</b></span>
+            </a>
+        </li>
+        <li class="nav-item" id="litab_1" index="1">
+            <a onclick="
+                    $('.tab').hide();
+                    $('.tab1').show();
+                    $('.tab-pane').removeClass('active');
+                    $('#tabpane_1').addClass('active'); $('.nav-item').removeClass('active'); $('#litab_1').addClass('active');" class="nav-link">
+                <span><b>page2</b></span>
+                <i class="glyphicon glyphicon-remove"
+                   ng-click="removeTab($event, $index)"
+                   role="button">
+                </i>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" id="tabpane_0">
+            <div class="content tab tab0" id="tabpanecontent_0">
+                <iframe src="@Url.Content("~/Home/page1")"></iframe>
+            </div>
+        </div>
+        <div class="tab-pane active" id="tabpane_1">
+            <div class="content tab tab1" id="tabpanecontent_1">
+                <iframe src="@Url.Content("~/Home/page2")"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
